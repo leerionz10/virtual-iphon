@@ -39,4 +39,13 @@ $('saveMemo').onclick=()=>{localStorage.viphoneMemo=$('memo').value;alert('ë©”ëª
 $('backup').onclick=()=>{let a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify({settings:cfg,contacts:people},null,2)],{type:'application/json'}));a.href=u;a.download='my-iphone-settings.json';a.click();URL.revokeObjectURL(u)};
 function clock(){let d=new Date(),t=d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false});$('statusTime').textContent=t;$('lockTime').textContent=t;$('homeTime').textContent=t;$('lockDate').textContent=d.toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'long'})}
 drawApps();apply();clock();setInterval(clock,15000);
+// Load the published shared configuration (site-config.json). This intentionally
+// replaces the browser's local demo state so visitors start from the same setup.
+fetch('./site-config.json?v=1').then(r=>{if(!r.ok)throw new Error('no shared config');return r.json()}).then(shared=>{
+  if(shared && shared.settings) cfg=shared.settings;
+  if(shared && Array.isArray(shared.contacts)) people=shared.contacts;
+  localStorage.viphoneCfg=JSON.stringify(cfg);
+  localStorage.viphonePeople=JSON.stringify(people);
+  apply();drawApps();
+}).catch(()=>{});
 </script></body></html>

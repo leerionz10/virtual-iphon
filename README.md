@@ -1,19 +1,23 @@
-# My Virtual iPhone
+# My Virtual iPhone — shared settings version
 
-## GitHub Pages에 올리는 방법
-1. GitHub 저장소 `virtual-iphon`을 엽니다.
-2. `Add file` → `Upload files`를 누릅니다.
-3. 압축을 풀고 `index.html`을 업로드합니다.
-4. 기존 파일을 교체하고 `Commit changes`를 누릅니다.
-5. 몇 분 뒤 https://leerionz10.github.io/virtual-iphon/ 을 새로고침합니다.
+## 1. Replace the website file
+1. Open your GitHub repository: https://github.com/leerionz10/virtual-iphon
+2. Choose `Add file` → `Upload files`.
+3. Upload this ZIP's `index.html` (not the ZIP itself).
+4. Commit the change and wait a few minutes.
 
-## 기능
-- 잠금화면과 홈 화면
-- 가상 메시지 보내기, 설정한 자동 답장 받기
-- 가상 연락처 추가
-- 배경화면 이미지/색상 변경
-- 사진 갤러리, 음원 파일 재생, Google 검색, 메모
-- 설정과 데이터는 현재 브라우저에 저장됨
+## 2. Publish your chosen settings for every visitor
+1. Open your website and go to Settings.
+2. Change wallpaper, home caption, auto-reply, and add the contacts you want.
+3. Tap **설정 백업**. It downloads `my-iphone-settings.json`.
+4. Rename that downloaded file to **site-config.json**.
+5. Upload `site-config.json` to the root of the same GitHub repository (same level as `index.html`) and commit it.
+6. Reload the website. Visitors will load the shared configuration file when they open the site.
 
-## 제한
-실제 SMS/iMessage, 실제 전화, iOS 시스템 권한은 제공하지 않습니다. 배경화면/사진/설정은 기본적으로 현재 브라우저에 저장되므로 다른 방문자에게 자동 공유되지 않습니다. 모든 방문자에게 동일하게 보이게 하려면 설정을 기본 코드에 반영하거나 서버/데이터베이스를 추가해야 합니다.
+The shared config file contains the wallpaper data and contact/message setup included in the export. Do not put private or sensitive conversations in a public repository: anyone may be able to read the published JSON file.
+
+## Important limits
+- This is a browser simulator. It does not send real SMS/iMessage or make real phone calls.
+- Shared config is public to site visitors. Do not include passwords or private information.
+- Photo gallery uploads and music file selections are not included in the shared-settings export; they remain local to the browser. Audio sharing can be added separately by using public audio files with appropriate rights.
+- If a visitor already had the older version open, refresh the page after deployment.
