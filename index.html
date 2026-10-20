@@ -1,69 +1,42 @@
-<!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#10121a">
-<title>Virtual iPhone</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div id="phone" class="phone">
-  <div class="wallpaper" id="wallpaper"></div>
-  <div class="statusbar">
-    <button id="statusTime" class="status-time" aria-label="잠금 화면">9:41</button>
-    <div class="status-icons"><span>●●●</span><span>⌁</span><span class="battery"><i></i></span></div>
-  </div>
-  <div id="lockScreen" class="lock-screen">
-    <div class="lock-date" id="lockDate">화요일, 10월 20일</div>
-    <div class="lock-clock" id="lockClock">9:41</div>
-    <div class="lock-notifications" id="lockNotifications"></div>
-    <div class="lock-bottom"><button id="flashBtn" class="round-tool" aria-label="손전등">⌁</button><span class="swipe-hint">위로 쓸어올려 열기</span><button id="cameraBtn" class="round-tool" aria-label="카메라">◎</button></div>
-  </div>
-  <main id="mainUI" class="main-ui hidden">
-    <header class="home-greeting"><div><div class="eyebrow">TUESDAY, OCTOBER 20</div><h1 id="homeTitle">좋은 하루예요</h1></div><button class="profile-dot" data-app="settings">☻</button></header>
-    <div id="homeNotifications" class="home-notifications"></div>
-    <section class="app-grid" id="appGrid">
-      <button class="app-icon" data-app="messages"><span class="glyph green">●</span><small>메시지</small></button>
-      <button class="app-icon" data-app="contacts"><span class="glyph silver">♙</span><small>연락처</small></button>
-      <button class="app-icon" data-app="photos"><span class="glyph photo-glyph">✿</span><small>사진</small></button>
-      <button class="app-icon" data-app="notes"><span class="glyph yellow">▤</span><small>메모</small></button>
-      <button class="app-icon" data-app="calculator"><span class="glyph dark">＋</span><small>계산기</small></button>
-      <button class="app-icon" data-app="clock"><span class="glyph silver">◷</span><small>시계</small></button>
-      <button class="app-icon" data-app="settings"><span class="glyph gray">⚙</span><small>설정</small></button>
-      <button class="app-icon" data-app="browser"><span class="glyph blue">◎</span><small>브라우저</small></button>
-    </section>
-    <section class="widget-row">
-      <button class="widget weather" data-app="settings"><span class="widget-label">오늘의 날씨</span><strong>☀  21°</strong><small>맑음 · 예시 정보</small></button>
-      <button class="widget battery-widget" data-app="settings"><span class="widget-label">기기 상태</span><strong>▰  100%</strong><small>가상 배터리</small></button>
-    </section>
-    <nav class="dock">
-      <button class="dock-icon" data-app="messages" aria-label="메시지">●</button>
-      <button class="dock-icon" data-app="browser" aria-label="브라우저">◎</button>
-      <button class="dock-icon" data-app="photos" aria-label="사진">✿</button>
-      <button class="dock-icon" data-app="settings" aria-label="설정">⚙</button>
-    </nav>
-  </main>
-  <section id="appWindow" class="app-window hidden">
-    <div class="app-topbar"><button id="backHome" class="back-button">‹ 홈</button><strong id="appTitle">메시지</strong><button id="appAction" class="top-action">＋</button></div>
-    <div id="appContent" class="app-content"></div>
-  </section>
-  <div id="controlCenter" class="control-center hidden">
-    <div class="cc-handle"></div><div class="cc-header"><strong>제어 센터</strong><button id="closeCC">완료</button></div>
-    <div class="cc-grid">
-      <button class="cc-toggle active" data-toggle="airplane">✈<span>비행기 모드</span></button>
-      <button class="cc-toggle active" data-toggle="wifi">⌁<span>Wi‑Fi</span></button>
-      <button class="cc-toggle" data-toggle="bluetooth">ᛒ<span>Bluetooth</span></button>
-      <button class="cc-toggle active" data-toggle="focus">☾<span>집중 모드</span></button>
-    </div>
-    <label class="range-label">☼ 화면 밝기 <input id="brightness" type="range" min="45" max="100" value="100"></label>
-    <label class="range-label">♫ 볼륨 <input id="volume" type="range" min="0" max="100" value="65"></label>
-    <button id="ccNotify" class="wide-button">알림 센터 보기</button>
-  </div>
-  <div id="notificationBanner" class="notification-banner hidden"></div>
-  <div id="toast" class="toast hidden"></div>
-  <div class="home-indicator" id="homeIndicator"></div>
-</div>
-<script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>My Virtual iPhone</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eee;font-family:-apple-system,BlinkMacSystemFont,sans-serif;display:grid;place-items:center;min-height:100vh;color:#222}.phone{width:min(100vw,410px);height:min(880px,100dvh);min-height:600px;background:#111;border:7px solid #222;border-radius:46px;padding:9px;box-shadow:0 20px 60px #0003}.screen{height:100%;border-radius:34px;overflow:hidden;position:relative;background:linear-gradient(145deg,#f9c9df,#c8b8ff 55%,#a9dcff);background-size:cover;background-position:center;color:white}.status{height:34px;padding:9px 22px 0;display:flex;justify-content:space-between;font-size:12px;font-weight:bold}.island{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:100px;height:25px;background:#090909;border-radius:18px;z-index:5}.view{position:absolute;inset:34px 0 28px;padding:16px;overflow:auto;display:none}.view.active{display:block}.clock{text-align:center;font-size:58px;font-weight:300;letter-spacing:-2px;margin-top:20px}.date{text-align:center;font-size:14px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:19px 7px;margin-top:24px}.app{border:0;background:none;color:white;font:inherit;text-align:center;cursor:pointer;padding:0}.ico{width:56px;height:56px;border-radius:16px;background:#ffffffdf;color:#222;display:grid;place-items:center;font-size:27px;margin:0 auto 5px;box-shadow:0 4px 12px #0002}.app small{font-size:11px;text-shadow:0 1px 5px #0007}.dock{position:absolute;bottom:12px;left:13px;right:13px;height:76px;border-radius:24px;background:#ffffff40;backdrop-filter:blur(18px);display:flex;justify-content:space-evenly;align-items:center}.dock .ico{width:49px;height:49px;margin:0}.indicator{position:absolute;bottom:5px;left:calc(50% - 55px);width:110px;height:4px;background:white;border-radius:4px}.lock{position:absolute;inset:0;z-index:4;background:inherit;background-size:cover;background-position:center;display:flex;align-items:center;flex-direction:column;padding-top:90px;text-shadow:0 2px 12px #0005}.lock .clock{font-size:80px}.note{margin-top:40px;background:#ffffff45;backdrop-filter:blur(20px);border-radius:17px;padding:14px;width:88%;font-size:13px}.unlock{margin-top:auto;margin-bottom:42px;background:#ffffff35;color:white;border:1px solid #ffffff99;border-radius:24px;padding:12px 22px}.bar{display:flex;align-items:center;gap:10px;margin-bottom:15px}.bar button,.btn{border:0;border-radius:12px;padding:10px 13px;background:#1681ff;color:white;cursor:pointer}.bar .back{background:#ffffffbb;color:#222}.title{font-size:23px;font-weight:750;flex:1}.panel{background:#fffffff0;color:#222;border-radius:17px;padding:13px;margin:10px 0}.field{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin:5px 0 10px;font:inherit;color:#222;background:white}.muted{font-size:12px;color:#777}.thread{display:flex;gap:10px;padding:11px 2px;border-bottom:1px solid #eee;color:#222;cursor:pointer}.avatar{width:42px;height:42px;border-radius:50%;background:#f4d6e7;display:grid;place-items:center;flex-shrink:0}.bubble{max-width:82%;padding:10px 13px;border-radius:17px;margin:8px 0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px}.me{background:#1685ff;color:white;margin-left:auto}.them{background:#e9e9ee;color:#222;margin-right:auto}.chatlog{padding-bottom:60px}.chatbox{position:absolute;bottom:10px;left:10px;right:10px;display:flex;gap:6px;padding:7px;background:#ffffffed;border-radius:24px}.chatbox input{flex:1;min-width:0;border:0;outline:0;padding:7px;background:transparent;color:#222}.photoGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.photoGrid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}.hide{display:none!important}
+</style><body><div class="phone"><div class="screen" id="screen"><div class="status"><span id="statusTime">9:41</span><span>●●● ▰</span></div><div class="island"></div>
+<div class="lock" id="lock"><div class="clock" id="lockTime">9:41</div><div class="date" id="lockDate"></div><div class="note">🔔 메시지<br><span id="lockNote">새로운 메시지가 도착했어요.</span></div><button class="unlock" id="unlock">위로 밀어 열기 ↑</button></div>
+<section class="view" id="home"><div class="clock" id="homeTime">9:41</div><div class="date" id="caption">오늘도 좋은 하루 ✨</div><div class="grid" id="grid"></div></section>
+<section class="view" id="messages"><div class="bar"><button class="back" data-home>‹ 홈</button><div class="title">메시지</div></div><div class="panel" id="threads"></div><div id="chat" class="hide"><div class="panel"><b id="chatName"></b><div class="muted">가상 문자 · 실제 SMS는 전송되지 않아요</div></div><div class="chatlog" id="log"></div><form class="chatbox" id="send"><input id="msg" placeholder="iMessage"><button class="btn">전송</button></form></div></section>
+<section class="view" id="contacts"><div class="bar"><button class="back" data-home>‹ 홈</button><div class="title">연락처</div></div><div class="panel" id="contactList"></div></section>
+<section class="view" id="photos"><div class="bar"><button class="back" data-home>‹ 홈</button><div class="title">사진</div></div><div class="panel"><input class="field" id="photoUpload" type="file" accept="image/*" multiple><div class="photoGrid" id="photoGrid"></div></div></section>
+<section class="view" id="music"><div class="bar"><button class="back" data-home>‹ 홈</button><div class="title">음악</div></div><div class="panel"><div style="font-size:60px;text-align:center">🎵</div><input class="field" id="audioUpload" type="file" accept="audio/*"><audio id="audio" controls style="width:100%"></audio><p class="muted">선택한 음원은 이 브라우저에서 재생됩니다.</p></div></section>
+<section class="view" id="settings"><div class="bar"><button class="back" data-home>‹ 홈</button><div class="title">설정</div></div><div class="panel"><h3>배경화면</h3><input class="field" id="wall" type="file" accept="image/*"><label>배경색</label><input class="field" id="color" type="color" value="#f9c9df"><button class="btn" id="pastel">기본 배경</button></div><div class="panel"><h3>홈 화면 문구</h3><input class="field" id="captionInput" placeholder="오늘도 좋은 하루 ✨"><h3>자동 답장</h3><label>기본 답장</label><input class="field" id="reply" value="응응! 조금 있다가 답장할게 💗"><label>키워드 (선택)</label><input class="field" id="keyword" placeholder="예: 안녕"><label>키워드 답장</label><input class="field" id="keyreply" placeholder="예: 안녕!! 뭐해?"><button class="btn" id="save">설정 저장</button><button class="btn" id="backup">설정 백업</button><p class="muted">설정은 이 브라우저에 저장됩니다. 모두에게 똑같이 배포하려면 기본 설정을 사이트 코드에 반영해야 해요.</p></div><div class="panel"><h3>연락처 추가</h3><input class="field" id="newName" placeholder="이름"><input class="field" id="newEmoji" placeholder="프로필 이모지 (예: 🐰)"><button class="btn" id="add">연락처 만들기</button></div></section>
+<section class="view" id="browser"><div class="bar"><button class="back" data-home>‹ 홈</button><div class="title">Google</div></div><div class="panel"><form id="search"><input class="field" id="query" placeholder="검색어"><button class="btn">검색하기</button></form></div></section>
+<section class="view" id="notes"><div class="bar"><button class="back" data-home>‹ 홈</button><div class="title">메모</div></div><div class="panel"><textarea class="field" id="memo" rows="10" placeholder="메모 입력"></textarea><button class="btn" id="saveMemo">저장</button></div></section>
+<div class="dock" id="dock"></div><div class="indicator"></div></div></div>
+<script>
+const $=x=>document.getElementById(x), apps=[['전화','☎️','contacts'],['메시지','💬','messages'],['사진','🌈','photos'],['카메라','📷','photos'],['음악','🎵','music'],['Google','🔎','browser'],['메모','📝','notes'],['설정','⚙️','settings']];
+let people=JSON.parse(localStorage.viphonePeople||'null')||[{id:'a',name:'지우',emoji:'🐰',msgs:[['them','안녕!! 💗'],['me','뭐해?'],['them','너 생각 중 ㅎㅎ']]},{id:'b',name:'민서',emoji:'🐻',msgs:[['them','오늘 뭐 해?'],['me','아직 모르겠어!']]}],cfg=JSON.parse(localStorage.viphoneCfg||'{}'),photos=JSON.parse(localStorage.viphonePhotos||'[]'),current=null;
+const savePeople=()=>localStorage.viphonePeople=JSON.stringify(people), esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function home(){open('home')}function open(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));$('lock').classList.add('hide');$('dock').classList.toggle('hide',id!=='home');if(id==='messages')threads();if(id==='contacts')contactList();if(id==='photos')gallery();if(id==='settings')loadCfg()}
+function drawApps(){ $('grid').innerHTML=apps.map(a=>`<button class="app" data-app="${a[2]}"><span class="ico">${a[1]}</span><small>${a[0]}</small></button>`).join('');$('dock').innerHTML=apps.slice(0,4).map(a=>`<button class="app" data-app="${a[2]}"><span class="ico">${a[1]}</span></button>`).join('')}
+function threads(){$('chat').classList.add('hide');$('threads').classList.remove('hide');$('threads').innerHTML=people.map(p=>`<div class="thread" data-thread="${p.id}"><div class="avatar">${p.emoji||'🙂'}</div><div><b>${esc(p.name)}</b><div class="muted">${esc((p.msgs.at(-1)||[])[1]||'대화를 시작해 보세요')}</div></div></div>`).join('')}
+function chat(id){current=people.find(p=>p.id===id);$('threads').classList.add('hide');$('chat').classList.remove('hide');$('chatName').textContent=current.name;log()}
+function log(){$('log').innerHTML=current.msgs.map(m=>`<div class="bubble ${m[0]==='me'?'me':'them'}">${esc(m[1])}</div>`).join('')}
+function contactList(){$('contactList').innerHTML=people.map(p=>`<div class="thread"><div class="avatar">${p.emoji||'🙂'}</div><div style="flex:1"><b>${esc(p.name)}</b></div><button class="btn" data-text="${p.id}">문자</button></div>`).join('')}
+function gallery(){$('photoGrid').innerHTML=photos.map(src=>`<img src="${src}">`).join('')}
+function loadCfg(){$('captionInput').value=cfg.caption||'오늘도 좋은 하루 ✨';$('reply').value=cfg.reply||'응응! 조금 있다가 답장할게 💗';$('keyword').value=cfg.keyword||'';$('keyreply').value=cfg.keyreply||''}
+function apply(){let bg=cfg.wall?`url("${cfg.wall}")`:cfg.bg||'linear-gradient(145deg,#f9c9df,#c8b8ff 55%,#a9dcff)';$('screen').style.backgroundImage=bg;$('lock').style.backgroundImage=bg;$('caption').textContent=cfg.caption||'오늘도 좋은 하루 ✨'}
+document.addEventListener('click',e=>{let a=e.target.closest('[data-app]');if(a)open(a.dataset.app);if(e.target.closest('[data-home]'))home();let t=e.target.closest('[data-thread]');if(t)chat(t.dataset.thread);let m=e.target.closest('[data-text]');if(m){open('messages');chat(m.dataset.text)}});
+$('unlock').onclick=home;$('send').onsubmit=e=>{e.preventDefault();let text=$('msg').value.trim();if(!text||!current)return;current.msgs.push(['me',text]);$('msg').value='';savePeople();log();let answer=cfg.keyword&&text.toLowerCase().includes(cfg.keyword.toLowerCase())&&cfg.keyreply?cfg.keyreply:(cfg.reply||'응응! 조금 있다가 답장할게 💗');setTimeout(()=>{current.msgs.push(['them',answer]);savePeople();log();$('lockNote').textContent=answer},600)};
+$('wall').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{cfg.wall=r.result;cfg.bg=null;localStorage.viphoneCfg=JSON.stringify(cfg);apply()};r.readAsDataURL(f)};
+$('color').oninput=e=>{cfg.wall=null;cfg.bg=`linear-gradient(145deg,${e.target.value},#c8b8ff 60%,#a9dcff)`;apply()};
+$('pastel').onclick=()=>{cfg.wall=null;cfg.bg='linear-gradient(145deg,#f9c9df,#c8b8ff 55%,#a9dcff)';apply()};
+$('save').onclick=()=>{cfg={...cfg,caption:$('captionInput').value,reply:$('reply').value,keyword:$('keyword').value,keyreply:$('keyreply').value};localStorage.viphoneCfg=JSON.stringify(cfg);apply();alert('설정을 저장했어요!')};
+$('add').onclick=()=>{let name=$('newName').value.trim();if(!name)return alert('이름을 입력해 주세요.');people.push({id:String(Date.now()),name,emoji:$('newEmoji').value||'🙂',msgs:[]});savePeople();$('newName').value='';$('newEmoji').value='';alert('연락처를 만들었어요!')};
+$('photoUpload').onchange=e=>[...e.target.files].forEach(f=>{let r=new FileReader();r.onload=()=>{photos.push(r.result);localStorage.viphonePhotos=JSON.stringify(photos);gallery()};r.readAsDataURL(f)});
+$('audioUpload').onchange=e=>{let f=e.target.files[0];if(f)$('audio').src=URL.createObjectURL(f)};
+$('search').onsubmit=e=>{e.preventDefault();if($('query').value.trim())window.open('https://www.google.com/search?q='+encodeURIComponent($('query').value),'_blank','noopener')};
+$('saveMemo').onclick=()=>{localStorage.viphoneMemo=$('memo').value;alert('메모 저장 완료!')};$('memo').value=localStorage.viphoneMemo||'';
+$('backup').onclick=()=>{let a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify({settings:cfg,contacts:people},null,2)],{type:'application/json'}));a.href=u;a.download='my-iphone-settings.json';a.click();URL.revokeObjectURL(u)};
+function clock(){let d=new Date(),t=d.toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',hour12:false});$('statusTime').textContent=t;$('lockTime').textContent=t;$('homeTime').textContent=t;$('lockDate').textContent=d.toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'long'})}
+drawApps();apply();clock();setInterval(clock,15000);
+</script></body></html>
