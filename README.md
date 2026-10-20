@@ -21,3 +21,7 @@ The shared config file contains the wallpaper data and contact/message setup inc
 - Shared config is public to site visitors. Do not include passwords or private information.
 - Photo gallery uploads and music file selections are not included in the shared-settings export; they remain local to the browser. Audio sharing can be added separately by using public audio files with appropriate rights.
 - If a visitor already had the older version open, refresh the page after deployment.
+
+
+## iOS-style icon update
+This version replaces the home-screen emoji icons with custom vector app icons and refines the phone frame, dock, lock screen, and app panels. It is an iOS-inspired simulator, not Apple's official iOS, and some app functionality remains simulated.
