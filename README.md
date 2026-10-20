@@ -1,27 +1,12 @@
-# My Virtual iPhone — shared settings version
+# Virtual iPhone — iOS 스타일 업데이트
 
-## 1. Replace the website file
-1. Open your GitHub repository: https://github.com/leerionz10/virtual-iphon
-2. Choose `Add file` → `Upload files`.
-3. Upload this ZIP's `index.html` (not the ZIP itself).
-4. Commit the change and wait a few minutes.
+## GitHub Pages에 올리는 방법
+1. ZIP 압축을 풉니다.
+2. 저장소 `https://github.com/leerionz10/virtual-iphon`을 엽니다.
+3. 저장소 루트(파일 목록이 보이는 첫 화면)에 `index.html`, `style.css`, `app.js` 세 파일을 각각 업로드/교체합니다. `README.md`는 선택 사항입니다.
+4. 커밋한 뒤 Actions 또는 Pages 배포가 끝날 때까지 기다립니다.
+5. 사이트를 `https://leerionz10.github.io/virtual-iphon/?v=ios-refresh-1`로 열어 확인합니다.
 
-## 2. Publish your chosen settings for every visitor
-1. Open your website and go to Settings.
-2. Change wallpaper, home caption, auto-reply, and add the contacts you want.
-3. Tap **설정 백업**. It downloads `my-iphone-settings.json`.
-4. Rename that downloaded file to **site-config.json**.
-5. Upload `site-config.json` to the root of the same GitHub repository (same level as `index.html`) and commit it.
-6. Reload the website. Visitors will load the shared configuration file when they open the site.
+**중요:** 기존 `app.js` 기능을 유지했습니다. ZIP 파일 자체를 저장소에 올리는 것만으로는 사이트 코드가 바뀌지 않습니다. 압축을 풀고 안에 있는 세 파일을 저장소에 올려야 합니다.
 
-The shared config file contains the wallpaper data and contact/message setup included in the export. Do not put private or sensitive conversations in a public repository: anyone may be able to read the published JSON file.
-
-## Important limits
-- This is a browser simulator. It does not send real SMS/iMessage or make real phone calls.
-- Shared config is public to site visitors. Do not include passwords or private information.
-- Photo gallery uploads and music file selections are not included in the shared-settings export; they remain local to the browser. Audio sharing can be added separately by using public audio files with appropriate rights.
-- If a visitor already had the older version open, refresh the page after deployment.
-
-
-## iOS-style icon update
-This version replaces the home-screen emoji icons with custom vector app icons and refines the phone frame, dock, lock screen, and app panels. It is an iOS-inspired simulator, not Apple's official iOS, and some app functionality remains simulated.
+이 프로젝트는 브라우저에서 동작하는 가상 시뮬레이터입니다. 실제 전화, 문자, Wi-Fi, Bluetooth 설정을 제어하지 않습니다. 사용자 데이터는 현재 브라우저에 저장됩니다.
